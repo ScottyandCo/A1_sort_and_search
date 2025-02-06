@@ -1,0 +1,15 @@
+C:\Users\jason\Nextcloud\Programming\repos\TAFE_git_repos\A1_sort_and_search\Assessment1\Assessment1\bin\Debug\net9.0\Assessment1.exe
+C:\Users\jason\Nextcloud\Programming\repos\TAFE_git_repos\A1_sort_and_search\Assessment1\Assessment1\bin\Debug\net9.0\Assessment1.deps.json
+C:\Users\jason\Nextcloud\Programming\repos\TAFE_git_repos\A1_sort_and_search\Assessment1\Assessment1\bin\Debug\net9.0\Assessment1.runtimeconfig.json
+C:\Users\jason\Nextcloud\Programming\repos\TAFE_git_repos\A1_sort_and_search\Assessment1\Assessment1\bin\Debug\net9.0\Assessment1.dll
+C:\Users\jason\Nextcloud\Programming\repos\TAFE_git_repos\A1_sort_and_search\Assessment1\Assessment1\bin\Debug\net9.0\Assessment1.pdb
+C:\Users\jason\Nextcloud\Programming\repos\TAFE_git_repos\A1_sort_and_search\Assessment1\Assessment1\obj\Debug\net9.0\Assessment1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jason\Nextcloud\Programming\repos\TAFE_git_repos\A1_sort_and_search\Assessment1\Assessment1\obj\Debug\net9.0\Assessment1.AssemblyInfoInputs.cache
+C:\Users\jason\Nextcloud\Programming\repos\TAFE_git_repos\A1_sort_and_search\Assessment1\Assessment1\obj\Debug\net9.0\Assessment1.AssemblyInfo.cs
+C:\Users\jason\Nextcloud\Programming\repos\TAFE_git_repos\A1_sort_and_search\Assessment1\Assessment1\obj\Debug\net9.0\Assessment1.csproj.CoreCompileInputs.cache
+C:\Users\jason\Nextcloud\Programming\repos\TAFE_git_repos\A1_sort_and_search\Assessment1\Assessment1\obj\Debug\net9.0\Assessment1.sourcelink.json
+C:\Users\jason\Nextcloud\Programming\repos\TAFE_git_repos\A1_sort_and_search\Assessment1\Assessment1\obj\Debug\net9.0\Assessment1.dll
+C:\Users\jason\Nextcloud\Programming\repos\TAFE_git_repos\A1_sort_and_search\Assessment1\Assessment1\obj\Debug\net9.0\refint\Assessment1.dll
+C:\Users\jason\Nextcloud\Programming\repos\TAFE_git_repos\A1_sort_and_search\Assessment1\Assessment1\obj\Debug\net9.0\Assessment1.pdb
+C:\Users\jason\Nextcloud\Programming\repos\TAFE_git_repos\A1_sort_and_search\Assessment1\Assessment1\obj\Debug\net9.0\Assessment1.genruntimeconfig.cache
+C:\Users\jason\Nextcloud\Programming\repos\TAFE_git_repos\A1_sort_and_search\Assessment1\Assessment1\obj\Debug\net9.0\ref\Assessment1.dll
