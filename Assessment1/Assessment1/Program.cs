@@ -10,9 +10,7 @@
  *      b. The range of numbers that are accepted for input / to be selected from randomly.
  */
 
-//TODO: change from user input to random int
-Console.Write("How many guesses would you like? ");
-int numberOfGuesses = int.Parse(Console.ReadLine());
+int numberOfGuesses = new Random().Next(1, 6); // randomly selects an int between 1 and 5
 
 int[] userGuessArray = new int[numberOfGuesses];
 for (int index = 0; index < numberOfGuesses; index++)
