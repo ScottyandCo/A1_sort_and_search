@@ -9,25 +9,19 @@
  *      a. The total number of values that the user must enter / are generated randomly.
  *      b. The range of numbers that are accepted for input / to be selected from randomly.
  */
- 
-Console.Write("Enter your first guess (a number from 1 to 99): ");
-string userGuess1 = Console.ReadLine();
 
-Console.Write("Enter your second guess (a number from 1 to 99): ");
-string userGuess2 = Console.ReadLine();
+//TODO: change from user input to random int
+Console.Write("How many guesses would you like? ");
+int numberOfGuesses = int.Parse(Console.ReadLine());
 
-Console.Write("Enter your third guess (a number from 1 to 99): ");
-string userGuess3 = Console.ReadLine();
+int[] userGuessArray = new int[numberOfGuesses];
+for (int index = 0; index < numberOfGuesses; index++)
+{
+    Console.Write($"Enter a number (between 1 and 99) for Guess #{index + 1}: ");
+    userGuessArray[index] = int.Parse(Console.ReadLine());
+}
 
-int[] userGuessArray = new int[3];
-int userInt1 = int.Parse(userGuess1);
-int userInt2 = int.Parse(userGuess2);
-int userInt3 = int.Parse(userGuess3);
-userGuessArray[0] = userInt1;
-userGuessArray[1] = userInt2;
-userGuessArray[2] = userInt3;
-
-int index = 0;
-foreach (int value in userGuessArray)
-    index = Array.IndexOf(userGuessArray, value);
-Console.WriteLine($"Guess #{index + 1} - {userGuessArray.GetValue(index)}");
+for (int index = 0; index < numberOfGuesses; index++)
+{
+    Console.WriteLine($"Guess #{index + 1} - {userGuessArray.GetValue(index)}");
+}
