@@ -12,30 +12,57 @@
 //TODO: confirm 6a and 6b are supposed to be randomly generated, or they must be able to be changed by the user?
 //TODO: add input validation, error handling and define strict value handling
 
+Console.Write("How many numbers would you like to guess? ");
+int numberOfGuesses = int.Parse(Console.ReadLine());
+
+Console.Write("What would you like the lowest number to be? ");
+int minRange = int.Parse(Console.ReadLine());
+
+Console.Write("What would you like the highest number to be? ");
+int maxRange = int.Parse(Console.ReadLine());
+
 //this entire block might be redundant
-int numberOfGuesses = new Random().Next(1, 6);
-int minRange = new Random().Next(1, 100);
-int maxRange = new Random().Next(1, 100);
+/*int numberOfGuesses = new Random().Next(1, 6);
+int minRange = new Random().Next(1, 3);
+int maxRange = new Random().Next(1, 5);
 while (minRange > maxRange)
-    minRange = new Random().Next(1, 100);
+    minRange = new Random().Next(1, 3);*/
 
-int randomNumberArraySize = new Random().Next(minRange, maxRange);
-int[] randomNumberArray = new int[randomNumberArraySize];
-
+int[] randomNumberArray = new int[numberOfGuesses];
+int number;
 // fill the randomNumberArray with random numbers
 for (int index = 0; index < randomNumberArray.Length; index++)
 {
-    randomNumberArray[index] = new Random().Next(1, 100);
+    number = new Random().Next(minRange, maxRange + 1);
+    while (randomNumberArray.Contains(number))
+        number = new Random().Next(minRange, maxRange + 1);
+    randomNumberArray[index] = number;
 }
 
-int[] userGuessArray = new int[numberOfGuesses];
+Console.WriteLine("Random Numbers {0}", string.Join(", ", randomNumberArray));
+
+int userGuess;
+int[] userCorrectGuessArray = new int[numberOfGuesses];
+int[] userIncorrectGuessArray = new int[numberOfGuesses];
 for (int index = 0; index < numberOfGuesses; index++)
 {
     Console.Write($"Enter a number (between 1 and 99) for Guess #{index + 1}: ");
-    userGuessArray[index] = int.Parse(Console.ReadLine());
+    userGuess = int.Parse(Console.ReadLine());
+    if (randomNumberArray.Contains(userGuess))
+        userCorrectGuessArray[index] = userGuess;
+    else
+        userIncorrectGuessArray[index] = userGuess;
 }
 
 for (int index = 0; index < numberOfGuesses; index++)
 {
-    Console.WriteLine($"Guess #{index + 1} - {userGuessArray.GetValue(index)}");
+    Console.WriteLine($"Guess #{index + 1} - {userCorrectGuessArray.GetValue(index)}");
 }
+
+int[] correctGuesses = new int[userCorrectGuessArray.Length];
+for (int index = 0; index < userCorrectGuessArray.Length; index++)
+{
+    if (userCorrectGuessArray[index] != 0)
+        correctGuesses[index] = userCorrectGuessArray[index];
+}
+Console.WriteLine("You correctly guessed {0}", string.Join(", ", correctGuesses));
