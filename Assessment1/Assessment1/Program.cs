@@ -12,21 +12,44 @@
 //TODO: confirm 6a and 6b are supposed to be randomly generated, or they must be able to be changed by the user?
 //TODO: add input validation, error handling and define strict value handling
 
-Console.Write("How many numbers would you like to guess? ");
-int numberOfGuesses = int.Parse(Console.ReadLine());
+using System.ComponentModel.Design;
 
-Console.Write("What would you like the lowest number to be? ");
-int minRange = int.Parse(Console.ReadLine());
+int numberOfGuesses = 0;
+int developerMinRange = 0;
+int minRange = developerMinRange;
+int developerMaxRange = 1000;
+int maxRange = developerMaxRange;
 
-Console.Write("What would you like the highest number to be? ");
-int maxRange = int.Parse(Console.ReadLine());
+while (numberOfGuesses <= 0) { 
+    Console.Write("How many guesses would you like to attempt (greater than 0)? "); 
+    while (!int.TryParse(Console.ReadLine(), out numberOfGuesses)) 
+    { 
+        Console.Write("How many numbers would you like to guess (greater than 0)? "); 
+    } 
+}
 
-//this entire block might be redundant
-/*int numberOfGuesses = new Random().Next(1, 6);
-int minRange = new Random().Next(1, 3);
-int maxRange = new Random().Next(1, 5);
-while (minRange > maxRange)
-    minRange = new Random().Next(1, 3);*/
+while (minRange <= developerMinRange)
+{
+    Console.Write($"What would you like the lowest number to be (greater than {developerMinRange})? ");
+    while (!int.TryParse(Console.ReadLine(), out minRange))
+    {
+        Console.Write($"What would you like the lowest number to be (greater than {developerMinRange})? ");
+    }
+}
+
+// Determine the maximum number available in the random number array
+// Continue to ask the user for another number if it is above the hard maximum
+while (maxRange >= developerMaxRange)
+{
+    Console.Write($"What would you like the highest number to be (less than {developerMaxRange})? ");
+    while (!int.TryParse(Console.ReadLine(), out maxRange))
+    {
+        Console.Write($"What would you like the highest number to be (less than {developerMaxRange})? ");
+    }
+}
+
+//if (maxRange - minRange > numberOfGuesses)
+    //re-run start program function
 
 int[] randomNumberArray = new int[numberOfGuesses];
 int number;
@@ -41,28 +64,52 @@ for (int index = 0; index < randomNumberArray.Length; index++)
 
 Console.WriteLine("Random Numbers {0}", string.Join(", ", randomNumberArray));
 
-int userGuess;
-int[] userCorrectGuessArray = new int[numberOfGuesses];
-int[] userIncorrectGuessArray = new int[numberOfGuesses];
+int[] userGuessArray = new int[numberOfGuesses];
 for (int index = 0; index < numberOfGuesses; index++)
 {
-    Console.Write($"Enter a number (between 1 and 99) for Guess #{index + 1}: ");
-    userGuess = int.Parse(Console.ReadLine());
-    if (randomNumberArray.Contains(userGuess))
-        userCorrectGuessArray[index] = userGuess;
+    int userGuess = 0;
+    while (userGuess < minRange || userGuess > maxRange)
+    {
+        Console.Write($"Enter a number (between {minRange} and {maxRange}) for Guess #{index + 1}: ");
+        userGuess = int.Parse(Console.ReadLine());
+        userGuessArray[index] = userGuess;
+    }
+}
+Console.WriteLine();
+int score = 0;
+List<int> correctGuesses = new List<int>();
+for (int index = 0; index < numberOfGuesses; index++)
+{
+    Console.WriteLine($"Guess #{index + 1} - You guessed '{userGuessArray.GetValue(index)}' and the correct number was '{randomNumberArray.GetValue(index)}'");
+    if (Convert.ToInt32(randomNumberArray.GetValue(index)) == Convert.ToInt32(userGuessArray.GetValue(index)))
+    {
+        Console.WriteLine("Congratulations! You guessed the correct number!");
+        Console.WriteLine();
+        correctGuesses.Add(userGuessArray[index]);
+        score += 1;
+    }
     else
-        userIncorrectGuessArray[index] = userGuess;
+    {
+        Console.WriteLine("Unfortunately you got that one wrong");
+        Console.WriteLine();
+    }
 }
 
-for (int index = 0; index < numberOfGuesses; index++)
-{
-    Console.WriteLine($"Guess #{index + 1} - {userCorrectGuessArray.GetValue(index)}");
-}
+Console.WriteLine($"You correctly guessed {score} out of {numberOfGuesses}");
+Console.WriteLine("Your correct guesses were numbers {0}", string.Join(" & ", correctGuesses));
 
-int[] correctGuesses = new int[userCorrectGuessArray.Length];
-for (int index = 0; index < userCorrectGuessArray.Length; index++)
+/*Prog.Begin();
+
+class Prog
 {
-    if (userCorrectGuessArray[index] != 0)
-        correctGuesses[index] = userCorrectGuessArray[index];
-}
-Console.WriteLine("You correctly guessed {0}", string.Join(", ", correctGuesses));
+    private int a = 2;
+    private int b = 1;
+    private int c = 5;
+
+    public static void Begin()
+    {
+        Prog Start = new Prog();
+        Console.WriteLine($"Program Started {Start.a}");
+    }
+}*/
+
