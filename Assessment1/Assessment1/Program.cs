@@ -11,6 +11,7 @@
  */
 
 MainGame guessingGame = new MainGame();
+//guessingGame.BinarySearch();
 int numberOfGuesses = guessingGame.DefineGameParameters();
 int[] randomNumberArray = guessingGame.GenerateRandomNumbers();
 
@@ -144,5 +145,50 @@ internal class MainGame
         else
             Console.WriteLine("You correctly guessed numbers {0}", string.Join(" & ", correctGuesses));
     }
+
+    /*public bool BinarySearch()
+    {
+        int[] randomNumberArraySearch = new int[] {1,2,3,4,5,6,7,8,9,10,11};
+        int userGuess = 1;
+        // find high
+        int highestIndex = randomNumberArraySearch.Length -1;
+        int highestNumber = randomNumberArraySearch[highestIndex];
+        //find low
+        int lowestIndex = randomNumberArraySearch[0];
+        Console.WriteLine(lowestIndex);
+        int lowestNumber = randomNumberArraySearch[lowestIndex];
+        Console.WriteLine(lowestNumber);
+        //find mid
+        int middleNumber = (highestNumber + lowestNumber) / 2;
+        Console.WriteLine(middleNumber);
+        bool result = false;
+        bool searching = true;
+        while (searching)
+        {
+            if (userGuess == lowestNumber || userGuess == highestNumber || userGuess == middleNumber)
+            {
+                searching = false;
+                result = true;
+                Console.WriteLine($"index {result}");
+            }
+                
+            if (userGuess < middleNumber)
+            {
+                highestNumber = middleNumber;
+                middleNumber = (highestNumber + lowestNumber) / 2;
+                Console.WriteLine($"high {middleNumber}");
+            }
+            if (userGuess > middleNumber)
+            {
+                lowestNumber = middleNumber;
+                middleNumber = (highestNumber + lowestNumber) / 2;
+                Console.WriteLine("low");
+            }
+            if (middleNumber == highestNumber)
+                searching = false;
+        }
+        Console.WriteLine(result);
+        return result;
+    } */
 }
 
