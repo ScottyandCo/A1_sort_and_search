@@ -42,9 +42,7 @@ internal class MainGame
 {
     // Developer hard floor and ceiling
     private const int DeveloperMinRange = 0;
-
     private const int DeveloperMaxRange = 1000;
-
     // User provides the below, within the range above
     private static int _numberOfGuesses;
     private static int _minRange = DeveloperMinRange;
@@ -157,6 +155,7 @@ internal class MainGame
 
     public void ProvideUserFeedback(int score, int numberOfGuesses, List<int> correctGuesses)
     {
+        Console.WriteLine();
         Console.WriteLine($"You correctly guessed {score} numbers out of {numberOfGuesses} attempts.");
         if (score == 0)
             Console.WriteLine("You didn't guess any numbers correctly...");
@@ -168,66 +167,30 @@ internal class MainGame
 
     public bool BinarySearch(int[] randomNumberArray, int userGuess)
     {
-        List<int> randomNumbers = [];
-        foreach (int number in randomNumberArray)
-        {
-            randomNumbers.Add(number);
-        }
-        // find highest number
-        int highestNumber = randomNumbers.Max();
-        int highestIndex = randomNumbers.IndexOf(highestNumber);
-        Console.WriteLine($"Index = {highestIndex} Number = {highestNumber}");
-        //find lowest number
-        int lowestNumber = randomNumbers.Min();
-        int lowestIndex = randomNumbers.IndexOf(lowestNumber);
-        //find middle number
-        int middleNumber = (highestNumber + lowestNumber) / 2;
+        int highestIndex = randomNumberArray.Length - 1;
+        int lowestIndex = 0;
         bool result = false;
-        bool searching = true;
-        while (searching)
+        while (lowestIndex <= highestIndex)
         {
-            if (userGuess == lowestNumber)
+            int middleIndex = (highestIndex + lowestIndex) / 2;
+            
+            if (randomNumberArray[middleIndex] == userGuess)
             {
-                searching = false;
                 result = true;
-                Console.WriteLine($"found at lowest number {lowestNumber}");
-                break;
+                Console.WriteLine($"found at {userGuess} at index {middleIndex}");
+                return result;
             }
 
-            if (userGuess == highestNumber)
+            else if (randomNumberArray[middleIndex] < userGuess)
             {
-                searching = false;
-                result = true;
-                Console.WriteLine($"found at highest number {highestNumber}");
-                break;
+                lowestIndex = middleIndex + 1;
             }
 
-            if (userGuess == middleNumber)
+            else if (randomNumberArray[middleIndex] > userGuess)
             {
-                searching = false;
-                result = true;
-                Console.WriteLine($"found at middle number {middleNumber}");
-                break;
+                highestIndex = middleIndex - 1;
             }
-
-            if (userGuess < middleNumber)
-            {
-                highestNumber = middleNumber;
-                middleNumber = (highestNumber + lowestNumber) / 2;
-                Console.WriteLine($"guess is lower than middle # {middleNumber}");
-            }
-
-            if (userGuess > middleNumber)
-            {
-                lowestNumber = middleNumber;
-                middleNumber = (highestNumber + lowestNumber) / 2;
-                Console.WriteLine($"guess is higher than middle # {middleNumber}");
-            }
-
-            if (middleNumber == highestNumber)
-                searching = false;
         }
-
         return result;
     }
 

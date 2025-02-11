@@ -8,19 +8,19 @@
     "net9.0": []
   },
   "packageFolders": {
-    "/home/jason/.nuget/packages/": {}
+    "C:\\Users\\jason\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/jason/Documents/repos/A1_sort_and_search/Assessment1/Assessment1/Assessment1.csproj",
+      "projectUniqueName": "C:\\Users\\jason\\repos\\A1_sort_and_search\\Assessment1\\Assessment1\\Assessment1.csproj",
       "projectName": "Assessment1",
-      "projectPath": "/home/jason/Documents/repos/A1_sort_and_search/Assessment1/Assessment1/Assessment1.csproj",
-      "packagesPath": "/home/jason/.nuget/packages/",
-      "outputPath": "/home/jason/Documents/repos/A1_sort_and_search/Assessment1/Assessment1/obj/",
+      "projectPath": "C:\\Users\\jason\\repos\\A1_sort_and_search\\Assessment1\\Assessment1\\Assessment1.csproj",
+      "packagesPath": "C:\\Users\\jason\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jason\\repos\\A1_sort_and_search\\Assessment1\\Assessment1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/jason/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\jason\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -65,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/home/jason/.dotnet/sdk/9.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\jason\\.dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
