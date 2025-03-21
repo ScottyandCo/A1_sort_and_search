@@ -58,7 +58,7 @@ internal class MainGame
             Console.Write("How many guesses would you like to attempt (enter a number greater than 0)? ");
             while (!int.TryParse(Console.ReadLine(), out _numberOfGuesses))
             {
-                Console.Write("How many guesses would you like to attempt (enter a nummber greater than 0)? ");
+                Console.Write("How many guesses would you like to attempt (you must enter a number greater than 0)? ");
             }
         }
 
@@ -134,7 +134,7 @@ internal class MainGame
                 while (!int.TryParse(Console.ReadLine(), out userGuess) || userGuessArray.Contains(userGuess))
                 {
                     Console.WriteLine($"You must enter a unique number (between {_minRange} and {_maxRange}): ");
-                    Console.WriteLine($"You have already guessed: {string.Join(" & ", previousGuessList)}.");
+                    Console.WriteLine($"You have already guessed: {string.Join(" & ", previousGuessList)}");
                     Console.Write($"Guess #{index + 1}: ");
                 }
 
